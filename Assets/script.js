@@ -13,32 +13,50 @@ const num = "0123456789";
 const sym = "!@#$%^&*_-+={}[];:,./<>?";
 
 
-function length() {
-  length = prompt("How long would you like your Password length to be?");
-  if(length < 8) {
-    length()
-  }
-  return length;
-}
 
 function genPW() {
-  length()
-  if(prompt("Would you like Uppercase Letters? (y/n)") === "y") {
+
+  var length = () => {
+    length = prompt("How long would you like your Password length to be?");
+    if(length >= 8 && length <= 128) {
+      length();
+    } else {
+      alert("Password needs to be between 8 and 128 characters, please try again.");
+      length();
+    }
+    return length;
+  }
+
+  length();
+
+  if(confirm("Would you like Uppercase Letters?") === true) {
     characters += upper;
     // console.log(characters)
+  } else {
+
   }
-  if(prompt("Would you like Lowercase Letters? (y/n)") === "y") {
+
+  if(confirm("Would you like Lowercase Letters?") === true) {
     characters += lower;
     // console.log(characters)
+  } else {
+
   }
-  if(prompt("Would you like Numbers? (y/n)") === "y") {
+
+  if(confirm("Would you like Numbers?") === true) {
     characters += num;
     // console.log(characters)
+  } else {
+
   }
-  if(prompt("Would you like Special characters? (y/n)") === "y") {
+
+  if(confirm("Would you like Special characters?") === true) {
     characters += sym;
     // console.log(characters)
+  } else {
+
   }
+
   var password = "";
   for(i = 0; i < length; i++) {
     // console.log(i)
