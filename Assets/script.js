@@ -18,16 +18,14 @@ function genPW() {
 
   var length = () => {
     length = prompt("How long would you like your Password length to be?");
-    if(length >= 8 && length <= 128) {
-      length();
-    } else {
+    if(length <= 8 || length >= 128) {
       alert("Password needs to be between 8 and 128 characters, please try again.");
       length();
     }
     return length;
   }
 
-  length();
+  console.log(length());
 
   if(confirm("Would you like Uppercase Letters?") === true) {
     characters += upper;
